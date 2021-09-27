@@ -14,14 +14,24 @@ NOTE: GOHANA is a work in progress and this README will update as progress is ma
 ```
 
 - Setup the connection
-```
+```go
 package main
 
 import (
+	"log"
 	"os"
 
 	"github.com/YonchevSimeon/gohana/gohana"
+	"github.com/joho/godotenv"
 )
+
+func init() {
+
+	err := godotenv.Load(".env")
+	if err != nil {
+		log.Fatal("Error loading .env file")
+	}
+}
 
 func main() {
 	gohana := &gohana.Instance{}
@@ -55,7 +65,7 @@ func main() {
 ### How to use them?
 
 - Find/FindOne
-```
+```go
 func main() {
 	...
 
@@ -74,7 +84,7 @@ func main() {
 
 ```
 - Insert
-```
+```go
 // First we have to create our structure of the relevant table, in this case will be "Hotel"
 type Hotel struct {
 	NAME string
@@ -95,7 +105,7 @@ func main() {
 }
 ```
 - Delete
-```
+```go
 
 func main() {
 	...
@@ -114,7 +124,7 @@ func main() {
 }
 ```
 - Update
-```
+```go
  // First we have to create our structure of the relevant table, in this case will be "Hotel"
 type Hotel struct {
 	NAME string
@@ -135,7 +145,7 @@ func main() {
 }
 ```
 - Avg/Min/Max/Sum
-```
+```go
 func main() {
 	...
         column := "HOTEL_ID"
@@ -150,7 +160,7 @@ func main() {
 }
 ```
 - Raw
-```
+```go
 // Here we will use raw query to create new column table named "demo"
 func main() {
 	...
