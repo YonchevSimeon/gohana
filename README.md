@@ -15,6 +15,16 @@ NOTE: GOHANA is a work in progress and this README will update as progress is ma
 
 - Setup the connection
 ```
+package main
+
+import (
+	"log"
+	"os"
+
+	"github.com/YonchevSimeon/gohana/gohana"
+	"github.com/joho/godotenv"
+)
+
 func main() {
 	gohana := &gohana.Instance{}
         err := godotenv.Load()
