@@ -18,26 +18,24 @@ NOTE: GOHANA is a work in progress and this README will update as progress is ma
 package main
 
 import (
-	"log"
 	"os"
 
 	"github.com/YonchevSimeon/gohana/gohana"
-	"github.com/joho/godotenv"
 )
 
 func main() {
 	gohana := &gohana.Instance{}
-        err := godotenv.Load()
-	if err != nil {
-		log.Fatal("Error loading .env file")
-	}
+
 	host := os.Getenv("SAP_HDB_URL")
 	port := os.Getenv("SAP_HDB_PORT")
 	username := os.Getenv("SAP_HDB_UNAME")
 	password := os.Getenv("SAP_HDB_PWD")
-	gohana.Connect(host,port,username,password)
-        defer gohana.Disconnect()
+
+	gohana.Connect(host, port, username, password)
+
+	defer gohana.Disconnect()
 }
+
 
 ```
 ### Supported operations
