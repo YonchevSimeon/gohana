@@ -1,20 +1,43 @@
 ﻿<p align="center">
   <a href="https://github.com/YonchevSimeon/gohana">
-    <img alt="GOHANA - SAP HANA ORM for Golang" src="https://i.imgur.com/AHkjYJ8.png" />
+    <img alt="GoHANA - SAP HANA ORM for Golang" src="https://i.imgur.com/AHkjYJ8.png" />
   </a>
 </p>
 
-GoHANA is an ORM library for HANA Databases. We aim to port it to the GORM library in the future.
+GoHANA is an ORM library for HANA Databases. We aim to port it to the GORM library in the future and add new features.
+
+This library is a port of
+https://github.com/shwetasrivastava/Ohana
+so Kudos to Shweta Srivastava!
 
 Feel free to open issues and create pull requests to contribute to project!
- 
+
+### Supported operations and features
+
+- Find(table, columns, conditions)
+- FindOne(table, columns, conditions)
+- Insert(table, inteface)
+- Delete(table, conditions)
+- Update(table, conditions, interface)
+- Avg(table, column, conditions)
+- Count(table, column, conditions)
+- Max(table, column, conditions)
+- Min(table, column, conditions)
+- Raw(query)
+- Sum(table, column, conditions)
+
 ### How to use it?
+
 - Install from pkg.go.dev
+
 ```
     go get github.com/YonchevSimeon/gohana/gohana
 ```
 
 - Setup the connection
+
+Please create an .env file and add your environment variables
+
 ```go
 package main
 
@@ -49,23 +72,11 @@ func main() {
 
 
 ```
-### Supported operations
-
-- Find(table, columns, conditions)
-- FindOne(table, columns, conditions)
-- Insert(table, inteface)
-- Delete(table, conditions)
-- Update(table, conditions, interface)
-- Avg(table, column, conditions)
-- Count(table, column, conditions)
-- Max(table, column, conditions)
-- Min(table, column, conditions)
-- Raw(query)
-- Sum(table, column, conditions)
 
 ### How to use them?
 
 - Find/FindOne
+
 ```go
 func main() {
 	...
@@ -84,7 +95,9 @@ func main() {
 }
 
 ```
+
 - Insert
+
 ```go
 // First we have to create our structure of the relevant table, in this case will be "Hotel"
 type Hotel struct {
@@ -105,7 +118,9 @@ func main() {
 	fmt.Println(rowsAffected)
 }
 ```
+
 - Delete
+
 ```go
 
 func main() {
@@ -124,7 +139,9 @@ func main() {
 	fmt.Println(rowsAffected)
 }
 ```
+
 - Update
+
 ```go
  // First we have to create our structure of the relevant table, in this case will be "Hotel"
 type Hotel struct {
@@ -145,7 +162,9 @@ func main() {
 	fmt.Println(rowsAffected)
 }
 ```
+
 - Avg/Min/Max/Sum
+
 ```go
 func main() {
 	...
@@ -160,7 +179,9 @@ func main() {
     // For methods Min/Max/Sum is exactly the same
 }
 ```
+
 - Raw
+
 ```go
 // Here we will use raw query to create new column table named "demo"
 func main() {
