@@ -4,8 +4,9 @@
   </a>
 </p>
 
-NOTE: GOHANA is a work in progress and this README will update as progress is made
+GoHANA is an ORM library for HANA Databases. We aim to port it to the GORM library in the future.
 
+Feel free to open issues and create pull requests to contribute to project!
  
 ### How to use it?
 - Install from pkg.go.dev
